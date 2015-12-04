@@ -1,0 +1,54 @@
+{
+  "name": "angular2-datatable",
+  "version": "0.1.0",
+  "description": "A data table system with filtering, sorting and draggable columns for Angular 2",
+  "main": "NgDataTable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BTMorton/angular2-datatable.git"
+  },
+  "keywords": [
+    "angular2",
+    "typescript",
+    "angular",
+    "datatable",
+    "datagrid"
+  ],
+  "author": "Ben Morton <ben.morton91@gmail.com> (http://bmorton.co.uk/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BTMorton/angular2-datatable/issues"
+  },
+  "homepage": "https://github.com/BTMorton/angular2-datatable#readme",
+  "peerDependencies": {
+    "angular2": "2.0.0-alpha.46",
+    "systemjs": "^0.19.4",
+    "@reactivex/rxjs": "5.0.0-alpha.7"
+  },
+  "files": [
+    "src/NgDataTable.ts",
+    "src/NgDataTable.css"
+  ],
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-typescript": "^2.9.2",
+    "gulp-uglify": "^1.4.1",
+    "jasmine": "^2.3.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.10",
+    "karma-coverage": "^0.5.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "merge2": "^0.3.6",
+    "phantomjs": "^1.9.18",
+    "reflect-metadata": "^0.1.2",
+    "typescript": "^1.6.2"
+  },
+  "dependencies": {}
+}
