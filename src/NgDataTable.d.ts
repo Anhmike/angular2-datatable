@@ -1,7 +1,8 @@
 import { KeyValueDiffers } from "angular2/angular2";
 export declare class NgDataTable {
     private _differs;
-    columnSet: Array<string>;
+    columnSet: any;
+    columnKeys: Array<string>;
     sortBy: string;
     sortIndex: number;
     sortAsc: boolean;
@@ -13,7 +14,7 @@ export declare class NgDataTable {
     filters: any;
     sortAscending: boolean;
     sortColumn: string;
-    columnOrder: Array<string>;
+    columnOrder: any;
     data: Array<any>;
     doCheck(): boolean;
     filterData(): void;

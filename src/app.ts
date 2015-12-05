@@ -13,7 +13,16 @@ import {NgDataTable} from "./NgDataTable";
 })
 // Component controller
 class MyAppComponent {
-	public order = ['id', 'gender', 'first_name', 'last_name', 'email', 'country', 'ip_address'];
+	public order: any = {
+		'id': 'ID',
+		'gender': 'Gender',
+		'first_name': 'First Name',
+		'last_name': 'Last Name',
+		'email': 'Email Address',
+		'country': 'Country',
+		'ip_address': 'IP Address'
+	};
+	
 	public dataSet = [{ "id": 1, "gender": "M", "first_name": "Ernest", "last_name": "Armstrong", "email": "earmstrong0@bigcartel.com", "country": "Sweden", "ip_address": "107.33.75.202" },
 		{ "id": 2, "gender": "M", "first_name": "Daniel", "last_name": "Hughes", "email": "dhughes1@yahoo.co.jp", "country": "Syria", "ip_address": "6.200.85.152" },
 		{ "id": 3, "gender": "F", "first_name": "Julie", "last_name": "Peters", "email": "jpeters2@alexa.com", "country": "Portugal", "ip_address": "118.71.191.174" },

@@ -11,7 +11,8 @@ import { Component, View, KeyValueDiffers, KeyValueDiffer, CORE_DIRECTIVES } fro
 	directives: [CORE_DIRECTIVES],
 })
 export class NgDataTable {
-	public columnSet: Array<string> = ['id', 'gender', 'first_name', 'last_name', 'email', 'country', 'ip_address'];
+	public columnSet: any = {};
+	public columnKeys: Array<string> = [];
 	public sortBy: string = '';
 	public sortIndex: number = 0;
 	public sortAsc: boolean = true;
@@ -31,7 +32,7 @@ export class NgDataTable {
 	get sortColumn(): string {
 		return this.sortBy;
 	}
-	get columnOrder(): Array<string> {
+	get columnOrder(): any {
 		return this.columnSet;
 	}
 	
@@ -56,7 +57,7 @@ export class NgDataTable {
 		this.sortData();
 	}
 	set sortColumn(v: string) {
-		var newIndex = this.columnSet.indexOf(v);
+		var newIndex = this.columnKeys.indexOf(v);
 		
 		if (newIndex > -1) {
 			this.sortBy = v;
@@ -64,19 +65,20 @@ export class NgDataTable {
 			this.sortData();
 		}
 	}
-	set columnOrder(v: Array<string>) {
+	set columnOrder(v: any) {
 		this.columnSet = v;
+		this.columnKeys = Object.keys(v);
 		
 		if (this.sortBy) {
-			var newIndex = this.columnSet.indexOf(this.sortBy);
+			var newIndex = this.columnKeys.indexOf(this.sortBy);
 			
 			if (newIndex > -1) {
 				this.sortIndex = newIndex;
 			} else {
-				this.sortBy = this.columnSet[Math.max(this.sortIndex, 0)];
+				this.sortBy = this.columnKeys[Math.max(this.sortIndex, 0)];
 			}
 		} else {
-			this.sortBy = this.columnSet[Math.max(this.sortIndex, 0)];
+			this.sortBy = this.columnKeys[Math.max(this.sortIndex, 0)];
 		}
 		
 		this.sortData();
@@ -122,7 +124,7 @@ export class NgDataTable {
 		var that = this;
 		
 		if (!this.viewData) return this.filterData();
-		if (!this.sortBy) this.sortBy = this.columnSet[this.sortIndex];
+		if (!this.sortBy) this.sortBy = this.columnKeys[this.sortIndex];
 		
 		this.viewData.sort(function(a, b) {
 			if (a[that.sortBy] == b[that.sortBy]) return 0;
@@ -140,7 +142,7 @@ export class NgDataTable {
 		}
 		
 		this.sortIndex = colNum;
-		this.sortBy = this.columnSet[colNum];
+		this.sortBy = this.columnKeys[colNum];
 		this.sortAsc = true;
 		
 		this.sortData();
